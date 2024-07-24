@@ -52,6 +52,7 @@ RUN useradd -m -l -u ${USER_ID} -s /bin/bash ${USER_NAME} \
     && usermod -aG video ${USER_NAME} \
     && export PATH=$PATH:/home/${USER_NAME}/.local/bin
 
+RUN echo "${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Switch to user to run user-space commands
 USER ${USER_NAME}
