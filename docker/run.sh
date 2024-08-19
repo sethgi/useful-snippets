@@ -8,11 +8,6 @@ DATA_DIR=<whatever>
 
 capabilities_str=\""capabilities=compute,utility,graphics,display\""
 
-cp /etc/passwd $SCRIPT_DIR/.etc_group
-cp /etc/passwd $SCRIPT_DIR/.etc_passwd
-getent group $(whoami) >> $SCRIPT_DIR/.etc_group
-getent passwd $(whoami) >> $SCRIPT_DIR/.etc_passwd
-
 
 DOCKER_OPTIONS=""
 DOCKER_OPTIONS+="-it "
@@ -29,7 +24,6 @@ DOCKER_OPTIONS+="-e NVIDIA_DRIVER_CAPABILITIES=video,compute,utility "
 DOCKER_OPTIONS+="--net=host "
 DOCKER_OPTIONS+="--runtime=nvidia "
 DOCKER_OPTIONS+="-e SDL_VIDEODRIVER=x11 "
-DOCKER_OPTIONS+="-v $SCRIPT_DIR/.etc_passwd:/etc/passwd:ro -v $SCRIPT_DIR/.etc_group:/etc/group:ro "
 DOCKER_OPTIONS+="-u $(id -u):$(id -g) "
 DOCKER_OPTIONS+="--shm-size 32G "
 
