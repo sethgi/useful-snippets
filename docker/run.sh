@@ -4,6 +4,7 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 IMAGE_TAG=<image_tag>
 CONTAINER_NAME=<container_name>
+CONTAINER_NAME="$CONTAINER_NAME_$(whaomi)"
 DATA_DIR=<whatever>
 
 capabilities_str=\""capabilities=compute,utility,graphics,display\""
