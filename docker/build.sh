@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-IMAGE_TAG=$(whoami)_<insert_tag>
+IMAGE_TAG="$(whoami)_<insert_tag>"
 
 DOCKER_OPTIONS=""
 DOCKER_OPTIONS+="-t $IMAGE_TAG:latest "
